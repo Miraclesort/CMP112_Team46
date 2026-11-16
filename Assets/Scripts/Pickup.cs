@@ -5,11 +5,8 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
+    //initialize score as public and static so it can be accessed by the score_setting class and changed every time the player collects a collectable
     public static int score;
-    int getScore()
-    {
-        return score;
-    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,10 +19,19 @@ public class Pickup : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider collider)
     {
-        Destroy(gameObject);
-        score++;
+        //checks if the collision is with the player
+        if (collider.gameObject.tag == "Player")
+        {
+            //destroys the collectable object and adds one to the score when colliding with the player
+            Destroy(gameObject);
+            score++;
+        }
+       else
+        {
+
+        }
     }
 
 
