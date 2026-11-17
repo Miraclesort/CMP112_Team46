@@ -28,7 +28,7 @@ public class Pickup : MonoBehaviour
             Destroy(gameObject);
             score++;
         }
-       else
+        else
         {
 
         }
